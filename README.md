@@ -1,4 +1,4 @@
-# Random Noise Lab
+# stochastic-audio-generator
 
 A standalone browser-based random noise generator built with vanilla HTML, CSS, and JavaScript.
 
