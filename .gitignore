@@ -1,0 +1,36 @@
+# Standard .gitignore template
+
+# Build directories
+/build/
+
+# Logs
+logs/
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+
+# Temporary files
+*~
+
+# Package managers
+node_modules/
+
+# IDE/Editor files
+*.swp
+*.swo
+*.log
+
+# Lock files
+*.lock
+
+# Coverage files
+coverage/
+
+# Test output
+__pycache__/
+
+# License file (already tracked)
+# LICENSE
