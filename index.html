@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Random Noise Lab — generate, visualize, and export random noise directly in your browser.">
+  <title>stochastic-audio-gen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="mark">∿</span> stochastic-audio-generator</div>
+    <div class="status"><span class="status-dot"></span></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">SIGNAL GENERATOR / 01</p>
+        <h1>Noise,<br><em>without the mystery.</em></h1>
+        <p class="intro">
+          Generate randomized audio signals, inspect their waveform, and export
+          the result as a WAV file. Everything runs locally in your browser.
+        </p>
+      </div>
+      <div class="hero-badge">
+        <span>SECURE RNG</span>
+        <strong>Web Crypto API</strong>
+        <small>crypto.getRandomValues()</small>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="controls">
+        <div class="panel-heading">
+          <span>GENERATOR</span>
+          <span class="index">01—04</span>
+        </div>
+
+        <label>
+          <span>Noise type</span>
+          <select id="noiseType">
+            <option value="white">White noise</option>
+            <option value="pink">Pink noise</option>
+            <option value="brown">Brown noise</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Duration <output id="durationValue">5.0 s</output></span>
+          <input id="duration" type="range" min="1" max="30" step="0.5" value="5">
+        </label>
+
+        <label>
+          <span>Amplitude <output id="amplitudeValue">0.35</output></span>
+          <input id="amplitude" type="range" min="0.05" max="1" step="0.01" value="0.35">
+        </label>
+
+        <label>
+          <span>Sample rate</span>
+          <select id="sampleRate">
+            <option value="44100">44,100 Hz</option>
+            <option value="48000">48,000 Hz</option>
+            <option value="22050">22,050 Hz</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button id="generate" class="primary">Generate noise <span>↗</span></button>
+          <button id="download" disabled>Export WAV <span>↓</span></button>
+        </div>
+
+        <div class="info">
+          <p><strong>About randomness</strong></p>
+          <p>
+            This tool uses the browser's Web Crypto API to obtain
+            cryptographically secure random values. That is stronger than
+            ordinary pseudo-random functions, but it is not a physical
+            quantum or atmospheric entropy source.
+          </p>
+        </div>
+      </aside>
+
+      <section class="visualizer">
+        <div class="visualizer-top">
+          <div>
+            <span class="label">LIVE WAVEFORM</span>
+            <strong id="waveTitle">WHITE NOISE</strong>
+          </div>
+          <div class="readout">
+            <span id="sampleCount">0 samples</span>
+            <span id="durationReadout">0.00 s</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="waveform"></canvas>
+          <div id="emptyState">
+            <span>∿</span>
+            <p>Generate a signal to begin</p>
+          </div>
+        </div>
+
+        <div class="visualizer-bottom">
+          <span>−1.0</span>
+          <span>AMPLITUDE</span>
+          <span>+1.0</span>
+        </div>
+      </section>
+    </section>
+
+    <section class="facts">
+      <article><span>01</span><h2>White</h2><p>Equal energy across the frequency spectrum. The familiar “static” sound.</p></article>
+      <article><span>02</span><h2>Pink</h2><p>Energy decreases with frequency, producing a balanced, softer spectrum.</p></article>
+      <article><span>03</span><h2>Brown</h2><p>Strong low-frequency emphasis. Deeper and smoother than white noise.</p></article>
+    </section>
+  </main>
+
+  <footer>
+    <span>stochastic-audio-generator</span>
+    <span></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
